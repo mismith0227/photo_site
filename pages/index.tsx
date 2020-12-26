@@ -18,17 +18,17 @@ interface Props {
 const Home: NextPage<Props> = (props) => {
   const blog = props.blog
   return (
-    <div>
-      {blog.map((blog) => (
-        <ul key={blog.id}>
-          <li>
-            <Link href={`/`}>
-              <a>{blog.title}</a>
-            </Link>
+    <div className="px-4">
+      <ul className="column-count-3 gap-4">
+        {blog.map((blog) => (
+          <li key={blog.id} className="break-inside mb-4">
+            {/* <Link href={`/`}>
+            <a>{blog.title}</a>
+          </Link> */}
             <img src={blog.photo.url} />
           </li>
-        </ul>
-      ))}
+        ))}
+      </ul>
     </div>
   )
 }
