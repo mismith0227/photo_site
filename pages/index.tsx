@@ -1,5 +1,7 @@
+import { profile } from 'console'
 import { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
+import Profile from '../components/Profile'
 
 export interface Blogs {
   id: string
@@ -18,17 +20,21 @@ interface Props {
 const Home: NextPage<Props> = (props) => {
   const blog = props.blog
   return (
-    <div className="px-4">
-      <ul className="column-count-3 gap-4">
-        {blog.map((blog) => (
-          <li key={blog.id} className="break-inside mb-4">
-            {/* <Link href={`/`}>
+    <div className="pb-20">
+      <Profile />
+      <div className="px-4">
+        <h2 className="my-28 text-center">Gallery</h2>
+        <ul className="md:column-count-2 lg:column-count-3 gap-4">
+          {blog.map((blog) => (
+            <li key={blog.id} className="break-inside mb-4">
+              {/* <Link href={`/`}>
             <a>{blog.title}</a>
           </Link> */}
-            <img src={blog.photo.url} />
-          </li>
-        ))}
-      </ul>
+              <img src={blog.photo.url} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

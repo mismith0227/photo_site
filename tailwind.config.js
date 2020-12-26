@@ -27,7 +27,9 @@ module.exports = {
         },
       }
 
-      addUtilities(newUtilities)
+      addUtilities(newUtilities, {
+        variants: ['responsive', 'hover'],
+      })
     }),
   ],
 }
