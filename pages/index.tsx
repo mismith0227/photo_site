@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { GetStaticProps, NextPage } from 'next'
+import Head from '../components/Head'
 import ImageModal from '../components/ImageModal'
 import Profile from '../components/Profile'
 
@@ -25,29 +26,40 @@ const Home: NextPage<Props> = (props) => {
   }
 
   return (
-    <div className="pt-20 pb-20">
-      <Profile />
-      <div className="px-4">
-        <h2 className="my-28 text-center">Gallery</h2>
-        <ul className="md:column-count-2 lg:column-count-3 gap-4">
-          {gallery.map((photo, index) => (
-            <li
-              key={photo.id}
-              className="break-inside mb-4 cursor-zoom-in"
-              onClick={() => openModal(index)}
-            >
-              <img src={photo.image.url} />
-            </li>
-          ))}
-        </ul>
-      </div>
-      <ImageModal
-        onCloseModal={closeModal}
-        isOpen={isModalOpen}
-        initialSlide={selectedPhoto}
-        photos={gallery}
+    <>
+      <Head
+        title={'mismith写真サイト'}
+        description={'写真のポートフォリオサイトです'}
+        keyword={'写真,ポートフォリオ'}
+        image={
+          'https://pbs.twimg.com/profile_images/1176903104442142720/UO3wHvoE_400x400.jpg'
+        }
+        url={'https://photo.mismith.me/'}
       />
-    </div>
+      <div className="pt-20 pb-20">
+        <Profile />
+        <div className="px-4">
+          <h2 className="my-28 text-center">Gallery</h2>
+          <ul className="md:column-count-2 lg:column-count-3 gap-4">
+            {gallery.map((photo, index) => (
+              <li
+                key={photo.id}
+                className="break-inside mb-4 cursor-zoom-in"
+                onClick={() => openModal(index)}
+              >
+                <img src={photo.image.url} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <ImageModal
+          onCloseModal={closeModal}
+          isOpen={isModalOpen}
+          initialSlide={selectedPhoto}
+          photos={gallery}
+        />
+      </div>
+    </>
   )
 }
 
