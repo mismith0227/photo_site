@@ -5,5 +5,6 @@ export interface Photo {
   revisedAt: string
   updatedAt: string
   title: string
-  photo: { url: string }
+  image: { url: string }
+  equipment?: string
 }
