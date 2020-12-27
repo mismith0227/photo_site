@@ -25,7 +25,7 @@ const Home: NextPage<Props> = (props) => {
   }
 
   return (
-    <div className="pb-20">
+    <div className="pt-20 pb-20">
       <Profile />
       <div className="px-4">
         <h2 className="my-28 text-center">Gallery</h2>

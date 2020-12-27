@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Profile() {
   return (
-    <div className="flex flex-col items-center pt-10">
+    <div className="flex flex-col items-center">
       <div className="overflow-hidden rounded-full w-24 h-24">
         <img
           src="https://pbs.twimg.com/profile_images/1176903104442142720/UO3wHvoE_400x400.jpg"
