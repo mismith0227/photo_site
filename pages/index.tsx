@@ -28,8 +28,8 @@ const Home: NextPage<Props> = (props) => {
   return (
     <>
       <Head
-        title={'mismith写真サイト'}
-        description={'写真のポートフォリオサイトです'}
+        title={'写真のポートフォリオサイト'}
+        description={'趣味で写真を撮ってる人のポートフォリオサイトです'}
         keyword={'写真,ポートフォリオ'}
         image={
           'https://pbs.twimg.com/profile_images/1176903104442142720/UO3wHvoE_400x400.jpg'
@@ -47,7 +47,7 @@ const Home: NextPage<Props> = (props) => {
                 className="break-inside mb-4 cursor-zoom-in"
                 onClick={() => openModal(index)}
               >
-                <img src={photo.image.url} />
+                <img src={photo.image.url} alt={photo.title} />
               </li>
             ))}
           </ul>
