@@ -99,7 +99,7 @@ export default function ImageModal({
                 className="flex justify-center items-center flex-col px-4 rerelativela"
               >
                 <img
-                  src={item.photo.url}
+                  src={item.image.url}
                   alt={item.title}
                   className="max-h-full"
                 />
