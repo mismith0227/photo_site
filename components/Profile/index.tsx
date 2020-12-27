@@ -21,6 +21,7 @@ export default function Profile() {
           <a
             target="_blank"
             className="mx-2 text-gray-400 hover:text-gray-600 duration-200"
+            rel="noopener"
           >
             Instagram
           </a>
@@ -29,6 +30,7 @@ export default function Profile() {
           <a
             target="_blank"
             className="mx-2 text-gray-400 hover:text-gray-600 duration-200"
+            rel="noopener"
           >
             500px
           </a>
@@ -37,6 +39,7 @@ export default function Profile() {
           <a
             target="_blank"
             className="mx-2 text-gray-400 hover:text-gray-600 duration-200"
+            rel="noopener"
           >
             Twitter
           </a>
@@ -45,6 +48,7 @@ export default function Profile() {
           <a
             target="_blank"
             className="mx-2 text-gray-400 hover:text-gray-600 duration-200"
+            rel="noopener"
           >
             Contact
           </a>
