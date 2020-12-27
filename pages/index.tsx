@@ -6,13 +6,13 @@ import Profile from '../components/Profile'
 import { Photo } from '../types/Photo'
 
 interface Props {
-  blog: Photo[]
+  gallery: Photo[]
 }
 
 const Home: NextPage<Props> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [selectedPhoto, setSelectedPhoto] = useState<number>(null)
-  const blog = props.blog
+  const gallery = props.gallery
 
   const openModal = (index) => {
     setSelectedPhoto(index)
@@ -30,13 +30,13 @@ const Home: NextPage<Props> = (props) => {
       <div className="px-4">
         <h2 className="my-28 text-center">Gallery</h2>
         <ul className="md:column-count-2 lg:column-count-3 gap-4">
-          {blog.map((blog, index) => (
+          {gallery.map((photo, index) => (
             <li
-              key={blog.id}
+              key={photo.id}
               className="break-inside mb-4 cursor-zoom-in"
               onClick={() => openModal(index)}
             >
-              <img src={blog.photo.url} />
+              <img src={photo.image.url} />
             </li>
           ))}
         </ul>
@@ -45,7 +45,7 @@ const Home: NextPage<Props> = (props) => {
         onCloseModal={closeModal}
         isOpen={isModalOpen}
         initialSlide={selectedPhoto}
-        photos={blog}
+        photos={gallery}
       />
     </div>
   )
@@ -57,12 +57,15 @@ export const getStaticProps: GetStaticProps = async () => {
   const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
   }
-  const data = await fetch('https://mismith.microcms.io/api/v1/blog', key)
+  const data = await fetch(
+    'https://mismith.microcms.io/api/v1/gallery?limit=30',
+    key
+  )
     .then((res) => res.json())
     .catch(() => null)
   return {
     props: {
-      blog: data.contents,
+      gallery: data.contents,
     },
   }
 }
