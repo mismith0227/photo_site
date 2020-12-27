@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import ImageModal from '../components/ImageModal'
 import Profile from '../components/Profile'
@@ -11,11 +11,11 @@ interface Props {
 
 const Home: NextPage<Props> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo>(null)
+  const [selectedPhoto, setSelectedPhoto] = useState<number>(null)
   const blog = props.blog
 
-  const openModal = (blog) => {
-    setSelectedPhoto(blog)
+  const openModal = (index) => {
+    setSelectedPhoto(index)
     setIsModalOpen(true)
   }
 
@@ -30,11 +30,11 @@ const Home: NextPage<Props> = (props) => {
       <div className="px-4">
         <h2 className="my-28 text-center">Gallery</h2>
         <ul className="md:column-count-2 lg:column-count-3 gap-4">
-          {blog.map((blog) => (
+          {blog.map((blog, index) => (
             <li
               key={blog.id}
-              className="break-inside mb-4 cursor-pointer"
-              onClick={() => openModal(blog)}
+              className="break-inside mb-4 cursor-zoom-in"
+              onClick={() => openModal(index)}
             >
               <img src={blog.photo.url} />
             </li>
@@ -44,7 +44,8 @@ const Home: NextPage<Props> = (props) => {
       <ImageModal
         onCloseModal={closeModal}
         isOpen={isModalOpen}
-        photo={selectedPhoto}
+        initialSlide={selectedPhoto}
+        photos={blog}
       />
     </div>
   )

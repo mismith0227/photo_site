@@ -25,6 +25,12 @@ module.exports = {
           'page-break-inside': 'avoid',
           'break-inside': 'avoid',
         },
+        '.cursor-zoom-in': {
+          cursor: 'zoom-in',
+        },
+        '.cursor-zoom-out': {
+          cursor: 'zoom-out',
+        },
       }
 
       addUtilities(newUtilities, {
