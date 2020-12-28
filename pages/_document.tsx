@@ -1,10 +1,10 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { existsGaId, GA_ID } from '../lib/gtag'
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <html lang="ja">
+      <Html lang="ja">
         <Head>
           {existsGaId && (
             <>
@@ -30,7 +30,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }
