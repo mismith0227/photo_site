@@ -44,15 +44,6 @@ export default function Profile() {
             Twitter
           </a>
         </Link>
-        <Link href={`https://mismith.me/contact/`}>
-          <a
-            target="_blank"
-            className="mx-2 text-gray-400 hover:text-gray-600 duration-200"
-            rel="noopener"
-          >
-            Contact
-          </a>
-        </Link>
       </div>
     </div>
   )

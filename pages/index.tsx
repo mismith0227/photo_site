@@ -40,7 +40,7 @@ const Home: NextPage<Props> = (props) => {
       <div className="pt-20 pb-20">
         <Profile />
         <div className="px-4">
-          <h2 className="my-28 text-center">Gallery</h2>
+          <h2 className="my-20 md:my-28 text-center">Gallery</h2>
           <ul className="md:column-count-2 lg:column-count-3 gap-4">
             {gallery.map((photo, index) => (
               <li
