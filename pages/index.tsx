@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { GetStaticProps, NextPage } from 'next'
+import Image from 'next/image'
 import Head from '../components/Head'
 import ImageModal from '../components/ImageModal'
 import Profile from '../components/Profile'
@@ -47,7 +48,12 @@ const Home: NextPage<Props> = (props) => {
                 className="break-inside mb-4 cursor-zoom-in"
                 onClick={() => openModal(index)}
               >
-                <img src={photo.image.url} alt={photo.title} />
+                <Image
+                  src={photo.image.url}
+                  alt={photo.title}
+                  width={photo.width}
+                  height={photo.height}
+                />
               </li>
             ))}
           </ul>
