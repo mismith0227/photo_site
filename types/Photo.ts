@@ -7,4 +7,6 @@ export interface Photo {
   title: string
   image: { url: string }
   equipment?: string
+  width: number
+  height: number
 }
