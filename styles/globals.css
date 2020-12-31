@@ -20,12 +20,75 @@ a {
 }
 
 .blog-content h1 {
+  margin: 2.25rem 0;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: bold;
+}
+
+.blog-content h2 {
+  margin: 2.25rem 0;
   font-size: 1.125rem;
   line-height: 1.75rem;
+  font-weight: bold;
+}
+
+.blog-content h3 {
+  margin: 2.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+
+.blog-content h4 {
+  margin: 2.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.blog-content h5 {
+  margin: 2.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .blog-content p {
   margin: 2.25rem 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.blog-content a {
+  color: rgba(37, 99, 235, 1);
+  text-decoration: underline;
+}
+
+.blog-content img {
+  margin: 2.25rem 0;
+}
+
+.blog-content blockquote {
+  margin: 2.25rem 0;
+  border-left: 0.25rem solid;
+  border-color: rgba(209, 213, 219, 1);
+  background-color: rgba(243, 244, 246, 1);
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.blog-content ul {
+  margin: 2.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.blog-content ol {
+  margin: 2.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  list-style: decimal;
+  padding-left: 1.5rem;
 }
