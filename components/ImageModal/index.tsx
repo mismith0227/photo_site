@@ -26,7 +26,7 @@ export default function ImageModal({
     }
     return (
       <div
-        className={`fixed bg-black bg-opacity-70 w-full h-full top-0 left-0 flex items-center justify-center duration-200 cursor-zoom-out ${
+        className={`fixed bg-black bg-opacity-90 w-full h-full top-0 left-0 flex items-center justify-center duration-200 cursor-zoom-out ${
           isOpen
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none opacity-0'
