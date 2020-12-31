@@ -31,6 +31,7 @@ const NoteDetail: NextPage<Props> = (props) => {
         <div className="mt-8">
           <Image
             src={blog.thumbnail.url}
+            alt={`${blog.title}のサムネイル`}
             width={blog.width}
             height={blog.height}
           />
