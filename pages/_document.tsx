@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { existsGaId, GA_ID } from '../lib/gtag'
+import Header from '../components/Header'
 
 export default class MyDocument extends Document {
   render() {
@@ -27,6 +28,7 @@ export default class MyDocument extends Document {
           )}
         </Head>
         <body>
+          <Header />
           <Main />
           <NextScript />
         </body>
