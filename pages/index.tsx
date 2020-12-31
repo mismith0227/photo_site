@@ -41,7 +41,7 @@ const Home: NextPage<Props> = (props) => {
         <Profile />
         <div className="px-4">
           <h2 className="my-20 md:my-28 text-center">Gallery</h2>
-          <ul className="md:column-count-2 lg:column-count-3 gap-4">
+          <ul className="column-count-2 lg:column-count-3 gap-4">
             {gallery.map((photo, index) => (
               <li
                 key={photo.id}
