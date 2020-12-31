@@ -16,7 +16,7 @@ export default function Profile() {
         RX100 M6 / Rollei B35
       </p>
 
-      <div className="flex mt-4  text-sm">
+      <div className="flex mt-4 text-sm">
         <Link href={`https://www.instagram.com/mismith0227/`}>
           <a
             target="_blank"

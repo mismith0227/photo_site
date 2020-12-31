@@ -18,3 +18,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.blog-content h1 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.blog-content p {
+  margin: 2.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

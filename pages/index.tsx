@@ -37,7 +37,7 @@ const Home: NextPage<Props> = (props) => {
         }
         url={'https://photo.mismith.me/'}
       />
-      <div className="pt-20 pb-20">
+      <div className="my-20">
         <Profile />
         <div className="px-4">
           <h2 className="my-20 md:my-28 text-center">Gallery</h2>
