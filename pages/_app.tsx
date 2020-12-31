@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
 import '../styles/globals.css'
 import 'swiper/swiper.min.css'
-import 'swiper/components/navigation/navigation.min.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
