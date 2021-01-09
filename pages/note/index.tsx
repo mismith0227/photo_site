@@ -14,8 +14,9 @@ interface Props {
 
 const Note: NextPage<Props> = (props) => {
   const blog = props.blog
-  const [postsNew, setPosts] = React.useState(blog)
+  const [blogList, setBlogList] = React.useState(blog)
   const [pageNumber, setPageNumber] = React.useState(1)
+  const [existMore, setExistMore] = React.useState(true)
 
   React.useEffect(() => {
     getPost()
@@ -37,13 +38,11 @@ const Note: NextPage<Props> = (props) => {
     setPageNumber(pageNumber + 1)
   }, 200)
 
-  // 続きの記事を取得して配列に結合
   const getPost = async () => {
-    if (pageNumber === 1) {
+    if (pageNumber === 1 || !existMore) {
       return
     }
 
-    // 続きの記事を取得
     const limit = 10
     const key = {
       headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY },
@@ -55,8 +54,12 @@ const Note: NextPage<Props> = (props) => {
       key
     )
     const data = await res.json()
-    const postsNext = postsNew.concat(data.contents)
-    setPosts(postsNext)
+
+    const postsNext = blogList.concat(data.contents)
+    setBlogList(postsNext)
+    if (data.contents.length === 0) {
+      setExistMore(false)
+    }
   }
 
   return (
@@ -74,7 +77,7 @@ const Note: NextPage<Props> = (props) => {
         <h2 className="text-center text-lg">note</h2>
         <div className="mt-20">
           <ul>
-            {postsNew.map((item) => (
+            {blogList.map((item) => (
               <li key={item.id} className="mt-20">
                 <Link href={`/note/${item.id}`}>
                   <a>
@@ -98,6 +101,8 @@ const Note: NextPage<Props> = (props) => {
               </li>
             ))}
           </ul>
+
+          <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"></svg>
         </div>
       </div>
     </>
