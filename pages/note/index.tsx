@@ -1,6 +1,7 @@
 import React from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import Link from 'next/link'
+import lodash from 'lodash'
 import moment from 'moment'
 import Head from '../../components/Head'
 import Image from 'next/image'
@@ -13,6 +14,51 @@ interface Props {
 
 const Note: NextPage<Props> = (props) => {
   const blog = props.blog
+  const [postsNew, setPosts] = React.useState(blog)
+  const [pageNumber, setPageNumber] = React.useState(1)
+
+  React.useEffect(() => {
+    getPost()
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [pageNumber])
+
+  const handleScroll = lodash.throttle(() => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    ) {
+      return
+    }
+    setPageNumber(pageNumber + 1)
+  }, 200)
+
+  // 続きの記事を取得して配列に結合
+  const getPost = async () => {
+    if (pageNumber === 1) {
+      return
+    }
+
+    // 続きの記事を取得
+    const limit = 10
+    const key = {
+      headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY },
+    }
+    const res = await fetch(
+      `https://mismith.microcms.io/api/v1/blog?limit=${limit}&offset=${
+        (pageNumber - 1) * limit
+      }`,
+      key
+    )
+    const data = await res.json()
+    const postsNext = postsNew.concat(data.contents)
+    setPosts(postsNext)
+  }
+
   return (
     <>
       <Head
@@ -28,7 +74,7 @@ const Note: NextPage<Props> = (props) => {
         <h2 className="text-center text-lg">note</h2>
         <div className="mt-20">
           <ul>
-            {blog.map((item) => (
+            {postsNew.map((item) => (
               <li key={item.id} className="mt-20">
                 <Link href={`/note/${item.id}`}>
                   <a>
@@ -62,9 +108,14 @@ export default Note
 
 export const getStaticProps: GetStaticProps = async () => {
   const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
+    headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY },
   }
-  const data = await fetch('https://mismith.microcms.io/api/v1/blog', key)
+  const limit = 10
+
+  const data = await fetch(
+    `https://mismith.microcms.io/api/v1/blog?limit=${limit}`,
+    key
+  )
     .then((res) => res.json())
     .catch(() => null)
   return {

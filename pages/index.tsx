@@ -73,7 +73,7 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
+    headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY },
   }
   const data = await fetch(
     'https://mismith.microcms.io/api/v1/gallery?limit=30',
