@@ -58,7 +58,7 @@ export default NoteDetail
 
 export const getStaticPaths = async () => {
   const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
+    headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY },
   }
   const data = await fetch('https://mismith.microcms.io/api/v1/blog', key)
     .then((res) => res.json())
@@ -71,7 +71,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.noteid
   const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
+    headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY },
   }
   const data = await fetch('https://mismith.microcms.io/api/v1/blog/' + id, key)
     .then((res) => res.json())
